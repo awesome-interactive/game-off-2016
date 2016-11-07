@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 public class MoveInstruction : InstructionInterface {
 
@@ -9,16 +10,22 @@ public class MoveInstruction : InstructionInterface {
 			return "MOVE";
 		}
 	}
-	int args {
-		get {
-			return 2;
-		}
+
+	private Action callback;
+	private List<string> args;
+	private GameObject gameObject;
+
+	void startAction (List<string> args, GameObject gameObject, Action callback) {
+		this.args = args;
+		this.gameObject = gameObject;
 	}
 
-	Action action () {
-		return () => {
 
-		};
+	//return true when finished
+	bool runAction () {
+
+
+		this.callback(-1);
 	}
 
 
