@@ -28,8 +28,8 @@ public class Interpreter : MonoBehaviour {
 			this.currentInstruction.startAction(line.args,this.gameObject,this.nextStep);
 		};
 
+		this.processProgram();
 
-	
 	}
 	
 	// Update is called once per frame
@@ -42,12 +42,14 @@ public class Interpreter : MonoBehaviour {
 		ProgramLine lineObject;
 		foreach(string line in lines) {
 			lineObject = new ProgramLine(line);
-			this.programLines.Add(lineObject, this.InstructionSet);
+			this.programLines.Add(lineObject, this.instructionSet);
 		}
 	}
 
 	int findLineIndex (int lineNo) {
+		foreach(ProgramLine line in this.programLines) {
 
+		}
 	}
 		
 }

@@ -9,7 +9,7 @@ public class ProgramLine {
 	public int instructionIndex {get;set;}
 	public List<string> args {get;set;}
 
-	public ProgramLine (string Line) {
+	public ProgramLine (string Line, List<InstructionInterface> instructionSet) {
 		
 	}
 }
