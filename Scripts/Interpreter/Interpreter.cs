@@ -12,6 +12,7 @@ public class Interpreter : MonoBehaviour {
 	private List<ProgramLine> programLines;
 	private Action nextStep();
 	private InstructionInterface currentInstruction;
+	public bool isRunning = false;
 
 	// Use this for initialization
 	void Start () {
@@ -34,7 +35,10 @@ public class Interpreter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		this.currentInstruction.runAction();
+		if(this.isRunning) {
+			this.currentInstruction.runAction();
+		}
+
 	}
 
 	void processProgram () {
@@ -47,9 +51,13 @@ public class Interpreter : MonoBehaviour {
 	}
 
 	int findLineIndex (int lineNo) {
-		foreach(ProgramLine line in this.programLines) {
-
+		for(int i = 0; i < this.programLines.Count; i++) {
+			if(this.programLines[i].lineNo == lineNo) {
+				return i;
+			}
 		}
+		return -1;
 	}
+
 		
 }
